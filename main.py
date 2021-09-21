@@ -21,8 +21,6 @@ def request():
 def data():
     return flask.render_template("data.html")
 
-import time, json
-from datetime import datetime
 @app.route('/data-sse-stream')
 def chart_data():
     sub = backend.generator.subscribe()
