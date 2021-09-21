@@ -7,12 +7,10 @@
 ## Technologies
 
 * [Python](https://www.python.org/)
-* [Bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
-	* I think i remember this being a thing webdevs use?
-	* If you ain't into it, just yeet it if you want.
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/)
 	* `pip install flask` after installing python
 	* Templating uses [Jinja](https://jinja.palletsprojects.com/en/3.0.x/templates/#synopsis)
+		* Basically anything between `{{` and `}}` is template stuff
 
 ## Setup & testing
 
