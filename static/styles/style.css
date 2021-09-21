@@ -1,7 +1,19 @@
-head {
-	background-color: coral;
+nav {
+	margin: 0;
+	padding: 0;
+	background-color: gray;
+}
+
+nav ul{
+	display: inline;
+	list-style-type: none;
+}
+
+nav ul li{
+	display: inline;
 }
 
 body {
-	background-color: lightblue;
+	background-color: green;
+	color: coral;
 }
