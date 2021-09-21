@@ -11,6 +11,7 @@ nav ul{
 
 nav ul li{
 	display: inline;
+	margin: 10px;
 }
 
 body {
@@ -25,9 +26,8 @@ div#header {
 }
 
 div#content {
-	background-color: cornflowerblue;
+	background-color: white;
 	margin: auto;
-	width: 80%;
 }
 
 div#footer {

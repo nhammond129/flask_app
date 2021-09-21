@@ -1,0 +1,87 @@
+{% extends "generic.html" %}
+
+{% block html_head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<canvas id="chart" width="400" height="200"></canvas>
+
+<script>
+	const plugin = {
+		id: 'custom_canvas_background_color',
+		beforeDraw: (chart) => {
+			const ctx = chart.canvas.getContext('2d');
+			ctx.save();
+			ctx.globalCompositeOperation = 'destination-over';
+			ctx.fillStyle = 'black';
+			ctx.fillRect(0, 0, chart.width, chart.height);
+			ctx.restore();
+		}
+	};
+	const config = {
+		type: 'line',
+		data: {
+			labels: [],
+			datasets: [{
+				label: "data",
+				backgroundColor: 'rgb(0,150,100)',
+				borderColor: 'rgb(0,150,100)',
+				data: [],
+				fill: false,
+			}],
+		},
+		plugins: [plugin],
+		options: {
+			responsive: true,
+			title: {
+				display: true,
+				text: 'Creating Real-Time Charts with Flask'
+			},
+			tooltips: {
+				mode: 'index',
+				intersect: false,
+			},
+			hover: {
+				mode: 'nearest',
+				intersect: true
+			},
+			scales: {
+				xAxes: [{
+					display: true,
+					scaleLabel: {
+						display: true,
+						labelString: 'Time'
+					}
+				}],
+				yAxes: [{
+					display: true,
+					scaleLabel: {
+						display: true,
+						labelString: 'Value'
+					}
+				}]
+			}
+		}
+	};
+
+	const context = document.getElementById('chart').getContext('2d');
+
+	const lineChart = new Chart(context, config);
+
+	const source = new EventSource("/data-sse-stream");
+
+	source.onmessage = function(event) {
+		const data = JSON.parse(event.data);
+		if (config.data.labels.length >= 100) {
+			config.data.labels.shift();
+			config.data.datasets[0].data.shift();
+		}
+		config.data.labels.push(data.time);
+		config.data.datasets[0].data.push(data.value);
+		lineChart.update();
+	}
+</script>
+
+{% endblock %}
