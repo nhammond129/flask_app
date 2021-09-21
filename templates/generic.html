@@ -11,22 +11,16 @@
 		{% block html_head %}
 		{% endblock %}
 	</head>
-	<nav>
-		<a href="/">Example Flask App</a>
-	  
-		<div>
-		  <ul>
-			<li class="nav-item">
-			  <a class="nav-link" href="{{ url_for('post')}}">Test Form</a>
-			</li>
-		  </ul>
-		  <form>
-			<input type="search" placeholder="Search" aria-label="Search">
-			<button type="submit">Search</button>
-		  </form>
-		</div>
-	  </nav>
 	<body>
+		<nav>
+			<a href="/">Example Flask App</a>
+			<ul>
+				<li>
+					<a href="{{ url_for('post')}}">Test Form</a>
+				</li>
+			</ul>
+		</nav>
+		
 		<div id="header">
 			<h1>we have a footer so why not a header?</h1>
 			{% block header %}
