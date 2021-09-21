@@ -39,7 +39,7 @@ class DataGenerator:
             for sub in self.subscribers:
                 sub.write(f"data:{json_data}\n\n")
 
-            time.sleep(0.1)
+            time.sleep(0.5)
 
     def subscribe(self):
         return self.Subscriber(self)
