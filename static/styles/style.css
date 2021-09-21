@@ -17,3 +17,19 @@ body {
 	background-color: green;
 	color: coral;
 }
+
+div#header {
+	background-color: darkkhaki;
+	margin: auto;
+	width: 80%;
+}
+
+div#content {
+	background-color: cornflowerblue;
+	margin: auto;
+	width: 80%;
+}
+
+div#footer {
+	background-color: darkmagenta;
+}

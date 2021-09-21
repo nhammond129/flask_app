@@ -1,7 +1,12 @@
 {% extends "generic.html" %}
 {% block title %}Index{% endblock %}
 
+{% block header %}
+	<p text-align=center>
+		index.html&ensp;:)
+	</p>
+{% endblock %}
+
 {% block content %}
-	<p>contents of body</p>
 	<a href="{{ url_for('post') }}">test form</a>
 {% endblock %}
