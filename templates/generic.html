@@ -4,24 +4,28 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content ="width=device-width, initial-scale=1">
 
-		<!--
-			Yeah I'm not sure what up with web dev but i know bootstrap is a thing
-			I copied this from https://getbootstrap.com/docs/5.1/getting-started/introduction/
-			Something seemingly note-worthy about bootstrap is the 'Box-sizing' section mentioned in the above link
-			-- Nicholas
-		-->
-		<!-- Bootstrap CSS -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-			  rel="stylesheet"
-			  integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
-			  crossorigin="anonymous">
-		<!-- Our CSS -->
+		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
 
 		<title>{% block title %}{% endblock %} - My Webpage</title>
 		{% block html_head %}
 		{% endblock %}
 	</head>
+	<nav>
+		<a href="/">Example Flask App</a>
+	  
+		<div>
+		  <ul>
+			<li class="nav-item">
+			  <a class="nav-link" href="{{ url_for('post')}}">Test Form</a>
+			</li>
+		  </ul>
+		  <form>
+			<input type="search" placeholder="Search" aria-label="Search">
+			<button type="submit">Search</button>
+		  </form>
+		</div>
+	  </nav>
 	<body>
 		<div id="header">
 			<h1>we have a footer so why not a header?</h1>
@@ -37,10 +41,6 @@
 		<div id="footer">
 			{% block footer %}
 			{% endblock %}
-			<!-- Bootstrap Bundle with Popper -->
-			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-					integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-					crossorigin="anonymous"></script>
 		</div>
 	</body>
 </html>
