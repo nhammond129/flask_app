@@ -17,7 +17,7 @@ class DataGenerator:
             while True:
                 if len(self.queue):
                     yield self.queue.pop(0)
-        def kill(self):
+        def __del__(self):
             self.parent.remove(self)
 
     def __init__(self):
