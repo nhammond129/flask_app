@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import flask
 import backend
 from threading import Thread
